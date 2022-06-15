@@ -1,0 +1,9 @@
+{
+	"name": "com.centurygame.postprocess",
+	"displayName": "CenturyGame PostProcess Toolkit",
+	"description": "Centurygame client postprocess tool",
+	"version": "0.0.4-preview",
+	"unity": "2018.4",
+	"license": "MIT",
+	"dependencies": {}
+}

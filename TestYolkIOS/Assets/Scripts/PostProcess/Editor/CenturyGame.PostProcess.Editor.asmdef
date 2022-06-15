@@ -1,0 +1,16 @@
+{
+    "name": "CenturyGame.PostProcess.Editor",
+    "references": [
+        "CenturyGame.PostProcess"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
