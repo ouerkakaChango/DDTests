@@ -14,6 +14,13 @@ public class CameraRenderTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(Render());
+    }
+
+    private IEnumerator Render()
+    {
+        //等待渲染线程结束
+        yield return new WaitForEndOfFrame();
         cam.Render();
     }
 }
