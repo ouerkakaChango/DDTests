@@ -44,7 +44,7 @@ Shader "FP/PostProcess/FPFinal"
 			{
 				half4 col = tex2D(_MainTex, i.uv);
 #if USE_LINEAR
-				col.rgb = LinearToGammaSpace(col.rgb);
+				//col.rgb = LinearToGammaSpace(col.rgb);
 #endif
 				return col;
 			}

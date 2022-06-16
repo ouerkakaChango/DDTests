@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 namespace CenturyGame.PostProcess
 {
-    public partial class PostProcessHandle : MonoBehaviour
+    public partial class PostProcessHandle
     {
         FPHBAO m_hbao;
         FPDepthOfField m_dof;
@@ -742,29 +742,18 @@ namespace CenturyGame.PostProcess
             cmd.Blit(source, destination, mat, pass);
         }
 
+        private bool doFinalBlit = true;
+
+        public override void ChangeDoBlit(bool doBlit)
+        {
+            doFinalBlit = doBlit;
+        }
+
         void FinalBlit(RenderTexture source)
         {
-            if (GetUITarget == null)
+            if (doFinalBlit)
             {
                 m_cmdPostProcess.Blit(source, null as RenderTexture);
-//#if UNITY_EDITOR
-//                m_cmdPostProcess.Blit(source, null as RenderTexture);
-//#else
-//#if UNITY_ANDROID
-//                CenturyGame.PostProcess.Utility.DrawFullScreen(m_cmdPostProcess, source, null as RenderTexture, m_materials.finalMat, 0);
-//#else
-//                m_cmdPostProcess.Blit(source, null as RenderTexture);
-//#endif
-//#endif
-            }
-            else
-            {
-                RenderTexture target = null;
-                Material linearMat = GetUITarget(ref target);
-                m_cmdPostProcess.Blit(source, target, linearMat, 0);
-
-                //Graphics.Blit();
-                Debug.Log("FinalBlit 2");
             }
         }
     }

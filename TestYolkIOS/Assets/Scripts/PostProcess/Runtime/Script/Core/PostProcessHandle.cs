@@ -9,7 +9,7 @@ using UnityEditor;
 #endif
 namespace CenturyGame.PostProcess
 {
-    public partial class PostProcessHandle : MonoBehaviour
+    public partial class PostProcessHandle : CameraPipeline
     {
         public enum AntiAliasing
         {
@@ -191,6 +191,8 @@ namespace CenturyGame.PostProcess
         readonly string depthTexName = "_DepthTex";
         public ScreenChange OnScreenChange = null;
         int imageCount = 0;
+
+        public override RenderTexture ColorRT => ColorTex;
         public Resolution PostResolution
         {
             get
